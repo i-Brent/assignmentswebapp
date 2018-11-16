@@ -1,19 +1,38 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as assignmentActions from '../actions/AssignmentActions';
 
 class Assignment extends Component {
 
+  humanizeDate = () => {
+    let date = new Date(this.props.assignment.get('due_at'))
+    let humanizedDate = date.toDateString().split(' ')
+    humanizedDate.shift()
+    humanizedDate[1] = humanizedDate[1] + ','
+    return humanizedDate.join(' ');
+  }
+
+  selectAssignmnet = () => {
+    this.props.assignmentActions.SelectAssignmnet(this.props.assignment)
+  }
+
   render () {
     return(
-      <div>
+      <div onClick = {(e) => {this.selectAssignmnet()}}>
         <div className = 'row'>
-          <h1>title {this.props.number}</h1>
+          <h1>{this.props.assignment.get('title')}</h1>
         </div>
         <div className= 'row'>
-          <p>date</p>
+          <p>{this.humanizeDate()}</p>
         </div>
       </div>
     )
   }
 }
 
-export default Assignment
+const mapDispatchToProps = (dispatch) => ({
+  assignmentActions: bindActionCreators(assignmentActions, dispatch),
+})
+
+export default connect(null, mapDispatchToProps)(Assignment);

@@ -6,15 +6,20 @@ class Submission extends Component {
     return (
       <Row>
         <Col xs='4'>
-          <img src="https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjgv_e41NTeAhXor1QKHbrFBe8QjRx6BAgBEAU&url=https%3A%2F%2Fwww.booleanapp.com%2F&psig=AOvVaw1d4jFoGt_UAvaO2svKssvl&ust=1542311561198730"/>
+          <img src={this.props.submission.get('creator').avatars.large}/>
         </Col>
         <Col xs='8'>
           <Container>
             <Row>
-              <h5>Submission {this.props.number}</h5>
+              <h5>
+                {
+                  this.props.submission.get('creator').first_name + " "
+                  + this.props.submission.get('creator').last_name
+                }
+              </h5>
             </Row>
             <Row>
-              <p>texas</p>
+              <p>{this.props.submission.get('content')}</p>
             </Row>
           </Container>
         </Col>
