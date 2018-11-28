@@ -5,7 +5,7 @@ import AssignmentConstants from '../constants/AssignmentConstants';
 //components
 import Assignment from './Assignment';
 //css
-import { Container, Row, Col } from 'reactstrap';
+import { Container, ListGroup } from 'reactstrap';
 //actions
 import * as assignmentActions from '../actions/AssignmentActions'
 
@@ -17,12 +17,12 @@ class AssignmentsBar extends Component {
   render () {
     const assignments = this.props.state.AssignmentReducer.get('assignments')
     return (
-      <Container>
+      <ListGroup>
         {assignments.map((assignment, key) => {
           return (<Assignment assignment={assignment} key={key}/>)
         }
         )}
-      </Container>
+      </ListGroup>
     )
   }
 }

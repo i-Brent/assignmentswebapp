@@ -1,5 +1,5 @@
 export default {
-  ACCESS_TOKEN: "12e7eaf1625004b7341b6d681fa3a7c1c551b5300cf7f7f3a02010e99c84695d",
+  ACCESS_TOKEN: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE1NDMzNTM4MjksImlzcyI6Imh0dHBzOi8vYXBpLmVkbW9kby5jb20iLCJ1c2VyIjp7ImlkIjoxNDQ1MTU3NTJ9LCJhcHAiOnsiaWQiOjk4OX0sImV4cGlyZXNfaW4iOjg2NDAwLCJzY29wZXMiOiJhbGwifQ.xTm-85smyh8M8bQ5AZIb2ZDiTx77rf9EVjYouieJG5qAf7u19P26ClEOHRHOKu2Un3y2x50v0nCYlfQUMO0fcg",
   FETCH_SUCCESS: 'assignment_fetch_success',
   FETCH_FAILURE: 'assignment_fetch_failure',
   NAV_ASSIGNMENT: 'nav_assignment',

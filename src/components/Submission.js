@@ -1,29 +1,34 @@
 import React, { Component } from 'react';
-import { Container, Row, Col } from 'reactstrap';
+import {
+  Container, Row, Col, Card,
+  CardTitle, CardImg, CardBody, CardText
+} from 'reactstrap';
 
 class Submission extends Component {
   render () {
     return (
-      <Row>
-        <Col xs='4'>
-          <img src={this.props.submission.get('creator').avatars.large}/>
-        </Col>
-        <Col xs='8'>
-          <Container>
-            <Row>
-              <h5>
-                {
-                  this.props.submission.get('creator').first_name + " "
-                  + this.props.submission.get('creator').last_name
-                }
-              </h5>
-            </Row>
-            <Row>
-              <p>{this.props.submission.get('content')}</p>
-            </Row>
-          </Container>
-        </Col>
-      </Row>
+      <Card>
+        <Row>
+          <Col xs='4'>
+            <CardImg width="100%" height= "100%" src={this.props.submission.get('creator').avatars.large}/>
+          </Col>
+          <Col xs='8'>
+            <CardBody>
+              <CardTitle>
+                <h5>
+                  {
+                    this.props.submission.get('creator').first_name + " "
+                    + this.props.submission.get('creator').last_name
+                  }
+                </h5>
+              </CardTitle>
+              <CardText>
+                <p>{this.props.submission.get('content')}</p>
+              </CardText>
+            </CardBody>
+          </Col>
+        </Row>
+      </Card>
     )
   }
 }

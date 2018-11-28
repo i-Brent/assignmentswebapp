@@ -22,7 +22,7 @@ export const AssignmentFetchSuccess = json => {
 })}
 
 export const AssignmentFetchFail = json => ({
-  type: AssignmentConstants.FETCH_SUCCESS,
+  type: AssignmentConstants.FETCH_FAILURE,
   payload: !!json.error
 })
 

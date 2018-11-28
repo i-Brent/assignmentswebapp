@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as assignmentActions from '../actions/AssignmentActions';
+import { ListGroupItem } from 'reactstrap';
 
 class Assignment extends Component {
 
@@ -19,14 +20,14 @@ class Assignment extends Component {
 
   render () {
     return(
-      <div onClick = {(e) => {this.selectAssignmnet()}}>
+      <ListGroupItem onClick = {(e) => {this.selectAssignmnet()}}>
         <div className = 'row'>
           <h1>{this.props.assignment.get('title')}</h1>
         </div>
         <div className= 'row'>
           <p>{this.humanizeDate()}</p>
         </div>
-      </div>
+      </ListGroupItem>
     )
   }
 }
