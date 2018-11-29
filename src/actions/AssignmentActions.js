@@ -3,7 +3,7 @@ import { Map } from 'immutable';
 
 export const AssignmentsFetch = () => {
   return async function (dispatch) {
-    const response = await fetch(`https://api.edmodo.com/assignments?access_token=${AssignmentConstants.ACCESS_TOKEN}`)
+    const response = await fetch(`https://api.edmodo.com/assignments?per_page=5&access_token=${AssignmentConstants.ACCESS_TOKEN}`)
     const json = await response.json()
     json.error ? dispatch(AssignmentFetchFail(json)) : dispatch(AssignmentFetchSuccess(json))
   }

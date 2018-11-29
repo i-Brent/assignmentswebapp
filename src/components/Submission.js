@@ -5,9 +5,22 @@ import {
 } from 'reactstrap';
 
 class Submission extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      expanded : false
+    }
+  }
+
+  toggleExpand = () => {
+    this.state.expanded ? this.setState({expanded : false}) : this.setState({expanded : true});
+  }
+
   render () {
     return (
-      <Card>
+      <Card className="text-secondary" onClick={(e) => {
+        this.toggleExpand()
+      }}>
         <Row>
           <Col xs='4'>
             <CardImg width="100%" height= "100%" src={this.props.submission.get('creator').avatars.large}/>
@@ -22,9 +35,13 @@ class Submission extends Component {
                   }
                 </h5>
               </CardTitle>
+              {this.state.expanded ?
               <CardText>
                 <p>{this.props.submission.get('content')}</p>
               </CardText>
+              :
+              null
+              }
             </CardBody>
           </Col>
         </Row>

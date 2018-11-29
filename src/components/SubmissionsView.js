@@ -36,7 +36,7 @@ class SubmissionsView extends PureComponent {
     return (
 
       <Container>
-        <h1>{currentTitle}</h1>
+        <h1 className="text-primary">{currentTitle}</h1>
         {this.props.state.SubmissionsReducer.map((submission, key) => (
           <Submission submission={submission} key={key}/>
         ))}

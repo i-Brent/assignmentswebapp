@@ -4,10 +4,11 @@ import { connect } from 'react-redux';
 
 class AssignmentView extends Component {
   render() {
+    console.log(this.props.state.get('selected'));
     return (
-      <Container>
+      <Container className='text-primary'>
         <h1>{this.props.state.getIn(['selected', 'title'])}</h1>
-        <p>{this.props.state.getIn(['selected', 'description'])}</p>
+        <p className='text-secondary'>{this.props.state.getIn(['selected', 'description'])}</p>
       </Container>
     )
   }

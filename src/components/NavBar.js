@@ -3,37 +3,34 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Nav, NavItem, NavLink } from 'reactstrap';
 import * as navActions from '../actions/NavBarActions';
+import { Link } from 'react-router-dom';
 import classnames from 'classnames';
 
 class NavBar extends Component {
   render(){
     return(
-      <Nav tabs>
+      <Nav tabs className="text-primary">
         <NavItem>
-          <NavLink
-            className={classnames({ active: this.props.NavBarReducer === false })}
-            onClick={(e)=>{this.props.navActions.ToggleNav(false)}}
-          >
-            Assignment
-          </NavLink>
+          <Link to={'/assignment/' + this.props.selected.get('id')}>
+            <NavLink>
+              Assignment
+            </NavLink>
+          </Link>
         </NavItem>
         <NavItem>
-          <NavLink
-            className={classnames({ active: this.props.NavBarReducer === true })}
-            onClick={(e)=>{this.props.navActions.ToggleNav(true)}}
-          >
-            Submissions
-          </NavLink>
+          <Link to={'/assignment_submissions/' + this.props.selected.get('id')}>
+            <NavLink>
+              Submissions
+            </NavLink>
+          </Link>
         </NavItem>
       </Nav>
     )
   }
 }
 
-const mapDispatchToProps = (dispatch) => ({
-  navActions: bindActionCreators(navActions, dispatch),
+const mapStateToProps = (state) => ({
+  selected: state.AssignmentReducer.get('selected')
 })
 
-const mapStateToProps = (state) => state
-
-export default connect(null, mapDispatchToProps)(NavBar);
+export default connect(mapStateToProps, null)(NavBar);

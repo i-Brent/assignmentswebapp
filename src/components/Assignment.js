@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as assignmentActions from '../actions/AssignmentActions';
 import { ListGroupItem } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 class Assignment extends Component {
 
@@ -20,7 +21,8 @@ class Assignment extends Component {
 
   render () {
     return(
-      <ListGroupItem onClick = {(e) => {this.selectAssignmnet()}}>
+      <Link to={'/assignment/' + this.props.assignment.get('id')}  >
+      <ListGroupItem onClick = {(e) => {this.selectAssignmnet()}} className="text-primary">
         <div className = 'row'>
           <h1>{this.props.assignment.get('title')}</h1>
         </div>
@@ -28,6 +30,7 @@ class Assignment extends Component {
           <p>{this.humanizeDate()}</p>
         </div>
       </ListGroupItem>
+      </Link>
     )
   }
 }
